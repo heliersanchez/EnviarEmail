@@ -75,6 +75,7 @@ document.addEventListener('DOMContentLoaded', function(){
     if(e.target.value.trim() === ''){
       mostrarAlerta(`El campo ${id} es obligatorio`, referencia);
       datos[e.target.name] = '';
+      comprobarDatos();
       return;
     } 
 
@@ -138,6 +139,7 @@ document.addEventListener('DOMContentLoaded', function(){
     datos.email = '';
     datos.asunto = '';
     datos.mensaje = '';
+    delete datos.cc;
 
     formulario.reset();
     comprobarDatos();
