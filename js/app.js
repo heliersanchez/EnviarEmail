@@ -59,11 +59,15 @@ document.addEventListener('DOMContentLoaded', function(){
 
     if(id === 'cc' && e.target.value.trim() === '') {
       limpiarAlerta(referencia);
+      comprobarDatos();
       return;
     }
 
     if(id === 'cc' && !validarEmail(e.target.value)){
       mostrarAlerta('El email no es valido', referencia);
+      datos[e.target.name] = '';
+      comprobarDatos();
+      delete datos.cc;
       return;
     }
 
@@ -85,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function(){
     limpiarAlerta(referencia);
     
     datos[e.target.name] = e.target.value.trim().toLowerCase(); 
-
+    console.log(datos);
     comprobarDatos();
 
   }
